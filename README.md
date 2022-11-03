@@ -9,3 +9,9 @@ To run this demo, you have to download the binaries from _resources_. Place `pue
 You have to start the daemon before using Pueue. To fork and run `pueue` into the background, just run `pueued -d`. You can run `pueue` then to check whether Pueue is started or not.
 
 There are pre prepared scripts in _pyfile_ for a quick example of how this demo works. Just run `bash run.sh` and then you can run `python main.py` to check the result.
+
+![](display/1.png)
+
+![](display/2.png)
+
+![](display/3.png)
