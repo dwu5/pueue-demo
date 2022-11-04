@@ -10,6 +10,7 @@ Start the daemon before using Pueue. To fork and run `pueue` into the background
 
 There are pre prepared scripts in _pyfile_ for a quick example of how this demo works. Just run `bash run.sh` and then you can run `python main.py` to check the result.
 
+## Quick look
 ![](display/1.png)
 
 ![](display/2.png)
@@ -17,3 +18,6 @@ There are pre prepared scripts in _pyfile_ for a quick example of how this demo 
 ![](display/3.png)
 
 ![](display/4.png)
+
+## Acknowledgments
+* [Pueue](https://github.com/Nukesor/pueue)
