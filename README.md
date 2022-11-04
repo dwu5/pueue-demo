@@ -15,3 +15,5 @@ There are pre prepared scripts in _pyfile_ for a quick example of how this demo 
 ![](display/2.png)
 
 ![](display/3.png)
+
+![](display/4.png)
