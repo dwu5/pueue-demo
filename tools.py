@@ -6,10 +6,9 @@ def get_pueue_log() -> dict:
     pueue_log = subprocess.check_output(['pueue', 'log', '-j']).decode()
     log_json = json.loads(pueue_log)
 
-    if len(log_json) > 0:
-        return log_json
-    else:
+    if len(log_json) == 0:
         raise Exception("Task list is empty.")
+    return log_json
 
 
 def get_pueue_id(pueue_label: str) -> int:
@@ -51,8 +50,7 @@ def get_pueue_status(pueue_label: str) -> str:
 def get_pueue_output(pueue_label: str) -> str:
     pueue_id = get_pueue_id(pueue_label)
 
-    if pueue_id != -1:
-        task_log = subprocess.check_output(['pueue', 'log', '-f', f'{pueue_id}']).decode()
-        return task_log
-    else:
+    if pueue_id == -1:
         raise ValueError("Couldn't find the task!")
+    task_log = subprocess.check_output(['pueue', 'log', '-f', f'{pueue_id}']).decode()
+    return task_log
