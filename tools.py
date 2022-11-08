@@ -54,3 +54,14 @@ def get_pueue_output(pueue_label: str) -> str:
         raise ValueError("Couldn't find the task!")
     task_log = subprocess.check_output(['pueue', 'log', '-f', f'{pueue_id}']).decode()
     return task_log
+
+
+def check_pueue_group(group: str):
+    pueue_state = subprocess.check_output(['pueue', 'status', '-j']).decode()
+    state_json = json.loads(pueue_state)
+    pueue_group_list = list(state_json['groups'].keys())
+
+    if group in pueue_group_list:
+        return
+    else:
+        subprocess.run(['pueue', 'group', 'add', group])
