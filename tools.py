@@ -64,4 +64,7 @@ def check_pueue_group(group: str):
     if group in pueue_group_list:
         return
     else:
-        subprocess.run(['pueue', 'group', 'add', group])
+        if group in ['0123', '4567']:
+            subprocess.run(['pueue', 'group', 'add', group])
+        else:
+            raise ValueError('Only gpu_index 0123 or 4567 is supported!')
