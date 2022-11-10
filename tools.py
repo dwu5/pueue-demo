@@ -17,7 +17,7 @@ def get_pueue_id(pueue_label: str) -> int:
     for task in log_json.values():
         if task['task']['label'] == pueue_label:
             return task['task']['id']
-    return -1
+    raise Exception("Couldn't find the task when trying to get pueue id by pueue label!")
 
 
 def get_pueue_status(pueue_label: str) -> str:
@@ -44,14 +44,11 @@ def get_pueue_status(pueue_label: str) -> str:
                 # Stashed
                 else:
                     return list(task['task']['status'].keys())[0]
-    return 'Unknown'
+    raise Exception("Couldn't find the task when trying to get task status by pueue label!")
 
 
 def get_pueue_output(pueue_label: str) -> str:
     pueue_id = get_pueue_id(pueue_label)
-
-    if pueue_id == -1:
-        raise ValueError("Couldn't find the task!")
     task_log = subprocess.check_output(['pueue', 'log', '-f', f'{pueue_id}']).decode()
     return task_log
 
